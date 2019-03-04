@@ -1,0 +1,121 @@
+body {
+	margin:0;
+	background-color: #fff;
+	background-attachment: fixed;
+	height:100vh;
+	margin: 0;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	line-height: 1.5;
+	color: #212529;
+}
+
+.menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+.menu li {
+	float: left;
+}
+
+.menu li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.menu li a:hover:not(.active) {
+	background-color: #111;
+}
+
+.active {
+	background-color: #5aa8fb;
+}
+
+.colapseButton{
+	display: none;
+}
+
+@media screen and (max-width: 800px) {
+	.menu li {
+		display: none;
+		float: none;
+	}
+	.menu .colapseButton, .menu li.show {
+		display: block;
+	}
+
+	.menu li input{
+	width: 90%;
+	}
+}
+
+.menu input{
+	border: none;
+	margin: 8px;
+	padding: 8px;
+	width: 200px;
+    font-size:14px;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+
+.content{
+		margin: 5px 0;
+}
+
+@media screen and (min-width: 800px) {
+	.menu li input:focus {
+		width: 400px;
+	}
+	.menu li:last-child{
+			float: right;
+	}
+	.content{
+		width: 800px;
+		margin: auto;
+	}
+}
+
+.event{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+	padding: 10px;
+	margin: 30px;
+}
+@media only screen and (max-width: 400px) {
+	.event{
+		margin: 5px;
+	}
+}
+
+.event:hover, .description a:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.summary {
+	background-color: #5aa8fb;
+	color: #fff;
+	margin: -10px;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+.description{
+	margin-bottom: 10px;
+}
+.description a{
+	background-color: #008CBA;
+	border: none;
+	color: white;
+	padding: 3px 8px;
+	margin: 5px 0px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}

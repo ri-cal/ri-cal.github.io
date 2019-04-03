@@ -9,56 +9,7 @@
 <link rel="stylesheet" href="style.css" />
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<script>
-	function hash_changed() {
-		$("a").removeClass("active");
-		$("a[href*='" + window.location.hash + "']").addClass("active");
-}
-	window.onhashchange = function () {
-		hash_changed();
-	};
-	function colapseNavi() {
-		var nav = $(".menu li:not(.colapseButton)");
-		var i = 0;
-		for (i = 0; i < nav.length; i++) {
-			if (nav[i].className === "show") {
-				nav[i].className = "hide";
-			} else {
-				nav[i].className = "show";
-			}
-		}
-	}
-	$(document).ready(function(){
-	  $("#search").on("keyup", function() {
-		var value = $(this).val().toLowerCase();
-		$("#events .event").filter(function() {
-		  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-		});
-	  });
-	});
-	var mykey = 'IzaSyAn2-mhwBg9w6C42vaehMcHrtW0StksZmY';
-	var calendarid = 'democracycalendar@gmail.com';
-	$.ajax({
-		type: 'GET',
-		url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid+ '/events?key=A' + mykey),
-		dataType: 'json',
-		success: function (response) {
-			var i = 0;
-			for (i = 0; i < response.items.length; i++) {
-				var summary = "<h3 class='summary'>" +response.items[i].summary + "</h3>";
-				var description = "<div class='description'>" +response.items[i].description + "</div>";
-				var location = "<div class='location'><i class='fas fa-map-marked-alt'></i> " +response.items[i].location+ "</div>";
-				var format = new Date(response.items[i].start.dateTime);
-				var date = "<div class='date'><i class='fas fa-calendar-alt'></i> " +format.toLocaleString()+ "</div>";
-				var event = $("<div class='event'>" +summary +description +location +date+ "</div>");
-				$('#events').append(event);
-			}
-		},
-		error: function (response) {
-			//tell that an error has occurred
-		}
-	});
-</script>
+<script src="script.js"></script>
 </head>
 <body>
 	<header class="header"></header>
@@ -67,7 +18,8 @@
 			<li class="colapseButton"><a href="javascript:void(0);" class="icon" onclick="colapseNavi()">
 				<i class="fa fa-bars"></i>
 			</a></li>
-			<li><a class="" href="#events">Termine</a></li>
+			<li><a href="#events">Termine</a></li>
+			</li>
 			<li><a href="#about">&Uuml;ber uns</a></li>
 			<li><input id="search" type="text" placeholder="Suche.."></li>
 		</ul>
@@ -78,7 +30,7 @@
 		<div class='event'>
 			<h3 class='summary'>&Uuml;ber uns</h3>
 			<div class='description'>
-			<p>Auf dieser Seite wird bald ein Liste mit verschiedenen Veranstaltungen zu finden sein.</p>
+			<p>Auf dieser Seite stellen wir euch eine Liste mit verschiedenen Veranstaltungen und Demo-Terminen zur verfügung. um eine Veranstaltung in deiner  Nähe zu finden nutze einfach die Suche oben rechts.</p>
 			<p>Das Titelbild stammt von Stephan Guerra, <b>unteilbar.org</b> CC-BY 4.0</p>
 			</div>
 		</div>
